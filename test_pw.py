@@ -21,6 +21,9 @@ class TestAccount(unittest.TestCase):
         self.account2.save_accout()
 
         self.assertEqual(len(Account.accounts_list), 2)
+        self.assertEqual(Account.accounts_list[0].account_name, 'Twitter')
+
+    
 
 if __name__ == '__main__':
     unittest.main()
