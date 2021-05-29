@@ -29,6 +29,10 @@ class TestAccount(unittest.TestCase):
 
         self.assertEqual(len(account3.password), 5)
 
+    def test_set_pw(self):
+        pw = Account.set_pw('P@$$word123')
+
+        self.assertEqual(pw, 'P@$$word123')
     
 
 if __name__ == '__main__':

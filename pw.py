@@ -18,3 +18,7 @@ class Account:
     def generate_pw(cls, pw_length):
         pw = ''.join(random.choice(string.ascii_uppercase) for i in range(pw_length))
         return pw
+
+    @classmethod
+    def set_pw(cls,pw):
+        pass
