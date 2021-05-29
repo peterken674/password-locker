@@ -5,8 +5,8 @@ from pw import Account
 class TestAccount(unittest.TestCase):
 
     def setUp(self):
-        self.account1 = Account('Twitter', 'peter@mail.com', '_peterken', 'p@$$w0rD')
-        self.account2 = Account('Gmail', 'peter@mail.com', 'wittey', 'l0v3_L33')
+        self.account1 = Account('Twitter', 'peter@mail.com', '_peterken', 'p@$$w0rD', 'ken')
+        self.account2 = Account('Gmail', 'peter@mail.com', 'wittey', 'l0v3_L33', 'ken')
 
     def tearDown(self):
         Account.accounts_list = []
@@ -16,6 +16,7 @@ class TestAccount(unittest.TestCase):
         self.assertEqual(self.account1.email, 'peter@mail.com')
         self.assertEqual(self.account1.username, '_peterken')
         self.assertEqual(self.account1.password, 'p@$$w0rD')
+        self.assertEqual(self.account1.user, 'ken')
 
     def test_save_account(self):
         self.account1.save_account()
@@ -25,7 +26,7 @@ class TestAccount(unittest.TestCase):
         self.assertEqual(Account.accounts_list[0].account_name, 'Twitter')
 
     def test_generate_pw(self):
-        account3 = Account('Facebook', 'peter@mail.com', 'peter', Account.generate_pw(5))
+        account3 = Account('Facebook', 'peter@mail.com', 'peter', Account.generate_pw(5), 'ken')
 
         self.assertEqual(len(account3.password), 5)
 
