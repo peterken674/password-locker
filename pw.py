@@ -21,7 +21,7 @@ class Credentials:
         
     @classmethod
     def generate_pw(cls, pw_length):
-        pw = ''.join(random.choice(string.ascii_uppercase) for i in range(pw_length))
+        pw = ''.join(random.choice(string.ascii_letters) for i in range(pw_length))
         return pw
 
     @classmethod
