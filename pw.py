@@ -65,3 +65,7 @@ class User:
             if account.user == self.username:
                 Account.accounts_list.remove(account)
         User.users_list.remove(self)
+    
+    @classmethod
+    def display_users(cls):
+        pass

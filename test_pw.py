@@ -88,5 +88,11 @@ class TestUser(unittest.TestCase):
         self.assertEqual(len(User.users_list), 1)
         self.assertEqual(len(Account.accounts_list), 0)
 
+    def test_display_users(self):
+        self.user1.save_user()
+        self.user2.save_user()
+
+        self.assertEqual(User.display_users, User.user_list)
+
 if __name__ == '__main__':
     unittest.main()
