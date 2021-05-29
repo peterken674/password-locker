@@ -37,5 +37,6 @@ class User:
     Class to manage user accounts.
     '''
 
+    users_list = []
     def __init__(self, username, password) :
         pass

@@ -1,6 +1,7 @@
 from types import GetSetDescriptorType
 import unittest
 from pw import Account
+from pw import User
 
 class TestAccount(unittest.TestCase):
 
@@ -48,7 +49,15 @@ class TestAccount(unittest.TestCase):
         self.account1.delete_account()
 
         self.assertEqual(len(Account.accounts_list), 1)
+
+class TestUser(unittest.TestCase):
     
+    def setUp(self):
+        self.user1 = User('peterken', 'iloveyou')
+        self.user2 = User('johndoe', 'dontknowyou')
+    
+    def tearDown(self):
+        User.users_list = []
 
 if __name__ == '__main__':
     unittest.main()
