@@ -1,10 +1,11 @@
 #!/usr/bin/env python3.9
 
-# Account functions
+# Functions
 from pw import Credentials, User
 
 def create_account(name, email, uname, pw, user):
-    return Credentials(name, email, uname, pw, user)
+    new_credential = Credentials(name, email, uname, pw, user)
+    return new_credential
 
 def save_account(account):
     account.save_account()
@@ -23,13 +24,14 @@ def delete_account(account):
 
 # User functions
 def create_user(fname, lname, uname, pw):
-    return User(fname, lname, uname, pw)
+    new_user = User(fname, lname, uname, pw)
+    return new_user
 
 def save_user(user):
     user.save_user()
 
 def user_login(uname, pw):
-    return user_login(uname, pw)
+    return User.user_login(uname, pw)
 
 def delete_user(user):
     user.delete_user()
@@ -51,6 +53,7 @@ def main():
             fname = input('First Name: ')
             lname = input('Last Name: ')
             username = input('Username: ')
+            # Choose mode of password creation.
             while True:
                 print('Password: \n\t1. Autogenerate password.\n\t2. Enter custom password.')
                 pw_input_choice = input('\tEnter choice: ')
@@ -65,9 +68,22 @@ def main():
                     break
                 else:
                     print('Invalid choice. Try again.\n\n')
+                    continue
 
-            create_user(fname, lname, username, password)
+            save_user(create_user(fname, lname, username, password))
             print(f'\nNew user {fname} {lname} created.\n\n')
+            continue
+
+        elif choice == '2':
+            print('\n\n***Log In***\n')
+            uname = input('Enter username: ')
+            pw = input('Enter password: ')
+            user_logged_in = user_login(uname, pw)
+            if user_logged_in:
+                print(f'\n\nUser {user_logged_in.fname} {user_logged_in.lname} successfully logged in.')
+                break
+            else:
+                print('Invalid credentials or user does not exist.\n\n')
             continue
         
 

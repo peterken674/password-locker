@@ -74,9 +74,9 @@ class TestUser(unittest.TestCase):
     def test_user_login(self):
         self.user1.save_user()
         self.user2.save_user()
-        auth = User.user_login('peterken', 'iloveyou')
+        auth_user = User.user_login('peterken', 'iloveyou')
 
-        self.assertTrue(auth)
+        self.assertEqual(auth_user, self.user1)
 
     def test_delete_user(self):
         self.user1.save_user()

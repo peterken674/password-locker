@@ -55,10 +55,9 @@ class User:
 
     @classmethod
     def user_login(cls, username, pw):
-        for user in User.users_list:
+        for user in cls.users_list:
             if user.username == username and user.password == pw:
-                return True
-        return False
+                return user
 
     def delete_user(self):
         for account in Credentials.accounts_list:
