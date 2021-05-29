@@ -9,7 +9,7 @@ class TestAccount(unittest.TestCase):
         self.account2 = Account('Gmail', 'peter@mail.com', 'wittey', 'l0v3_L33')
 
     def tearDown(self):
-        Account.pw_list = []
+        Account.accounts_list = []
 
     def test_init(self):
         self.assertEqual(self.account1.account_name, 'Twitter')
