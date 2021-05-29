@@ -1,5 +1,6 @@
 import random
 import string
+from types import ClassMethodDescriptorType
 class Account:
     '''
     Class to store the details of an account.
@@ -44,3 +45,7 @@ class User:
 
     def save_user(self):
         User.users_list.append(self)
+
+    @classmethod
+    def user_login(cls, username, pw):
+        pass
