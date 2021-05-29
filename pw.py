@@ -21,4 +21,4 @@ class Account:
 
     @classmethod
     def set_pw(cls,pw):
-        pass
+        return pw
