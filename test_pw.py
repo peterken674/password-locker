@@ -59,5 +59,9 @@ class TestUser(unittest.TestCase):
     def tearDown(self):
         User.users_list = []
 
+    def test_init(self):
+        self.assertEqual(self.user1.username, 'peterken')
+        self.assertEqual(self.user1.password, 'iloveyou')
+
 if __name__ == '__main__':
     unittest.main()
