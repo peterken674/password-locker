@@ -19,12 +19,12 @@ class TestAccount(unittest.TestCase):
 
     def test_save_account(self):
         self.account1.save_account()
-        self.account2.save_accout()
+        self.account2.save_account()
 
         self.assertEqual(len(Account.accounts_list), 2)
         self.assertEqual(Account.accounts_list[0].account_name, 'Twitter')
 
-    def test_generate_password(self):
+    def test_generate_pw(self):
         account3 = Account('Facebook', 'peter@mail.com', 'peter', Account.generate_pw(5))
 
         self.assertEqual(len(account3.password), 5)

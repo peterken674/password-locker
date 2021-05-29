@@ -1,3 +1,5 @@
+import random
+import string
 class Account:
     '''
     Class to store the details of an account.
@@ -9,4 +11,10 @@ class Account:
         self.username = username
         self.password = password
 
+    def save_account(self):
+        Account.accounts_list.append(self)
         
+    @classmethod
+    def generate_pw(cls, pw_length):
+        pw = ''.join(random.choice(string.ascii_uppercase) for i in range(pw_length))
+        return pw
