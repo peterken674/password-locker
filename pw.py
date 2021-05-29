@@ -6,6 +6,7 @@ class Account:
     Class to store the details of an account.
     '''
     accounts_list = []
+    user_accounts = []
     def __init__(self, account_name, email, username, password, user):
         self.account_name = account_name
         self.email = email
@@ -27,8 +28,11 @@ class Account:
         return pw
 
     @classmethod
-    def display_accounts(cls):
-        return Account.accounts_list
+    def display_accounts(cls, user):
+        for account in cls.accounts_list:
+            if account.user == user:
+                cls.user_accounts.append(account)
+        return cls.user_accounts
 
     def delete_account(self):
         Account.accounts_list.remove(self)

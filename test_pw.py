@@ -39,8 +39,8 @@ class TestAccount(unittest.TestCase):
     def test_display_contacts(self):
         self.account1.save_account()
         self.account2.save_account()
-
-        self.assertEqual(len(Account.display_accounts()), 2)
+        
+        self.assertEqual(Account.display_accounts('ken'), Account.user_accounts)
 
     def test_delete_account(self):
         self.account1.save_account()
