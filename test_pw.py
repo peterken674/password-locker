@@ -33,6 +33,12 @@ class TestAccount(unittest.TestCase):
         pw = Account.set_pw('P@$$word123')
 
         self.assertEqual(pw, 'P@$$word123')
+
+    def test_display_contacts(self):
+        self.account1.save_account()
+        self.account2.save_account()
+
+        self.assertEqual(len(Account.display_accounts()), 2)
     
 
 if __name__ == '__main__':

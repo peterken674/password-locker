@@ -25,4 +25,4 @@ class Account:
 
     @classmethod
     def display_accounts(cls):
-        pass
+        return Account.accounts_list
