@@ -42,7 +42,7 @@ class User:
     '''
     Class to manage user accounts.
     '''
-
+    
     users_list = []
     def __init__(self, fname, lname, username, password) :
         self.fname = fname
@@ -68,3 +68,6 @@ class User:
     @classmethod
     def display_users(cls):
         return User.users_list
+
+user1 = User('Peter', 'Ken','test', 't3st')
+User.users_list.append(user1)
