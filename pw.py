@@ -29,3 +29,10 @@ class Account:
 
     def delete_account(self):
         Account.accounts_list.remove(self)
+
+class User:
+    '''
+    Class to manage user accounts.
+    '''
+    def __init__(self) :
+        pass
