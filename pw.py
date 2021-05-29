@@ -43,4 +43,4 @@ class User:
         self.password = password
 
     def save_user(self):
-        pass
+        User.users_list.append(self)
