@@ -22,3 +22,7 @@ class Account:
     @classmethod
     def set_pw(cls,pw):
         return pw
+
+    @classmethod
+    def display_accounts(cls):
+        pass
