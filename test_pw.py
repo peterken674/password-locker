@@ -1,3 +1,4 @@
+from types import GetSetDescriptorType
 import unittest
 from pw import Account
 
@@ -22,6 +23,11 @@ class TestAccount(unittest.TestCase):
 
         self.assertEqual(len(Account.accounts_list), 2)
         self.assertEqual(Account.accounts_list[0].account_name, 'Twitter')
+
+    def test_generate_password(self):
+        account3 = Account('Facebook', 'peter@mail.com', 'peter', Account.generate_pw(5))
+
+        self.assertEqual(len(account3.password), 5)
 
     
 
