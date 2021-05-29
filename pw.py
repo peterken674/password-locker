@@ -68,4 +68,4 @@ class User:
     
     @classmethod
     def display_users(cls):
-        pass
+        return User.users_list
