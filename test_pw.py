@@ -71,6 +71,8 @@ class TestUser(unittest.TestCase):
         self.assertEqual(User.users_list[0].username, 'peterken')
 
     def test_user_login(self):
+        self.user1.save_user()
+        self.user2.save_user()
         auth = User.user_login('peterken', 'iloveyou')
 
         self.assertTrue(auth)
