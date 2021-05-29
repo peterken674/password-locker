@@ -1,6 +1,7 @@
 import random
 import string
-from types import ClassMethodDescriptorType
+
+
 class Account:
     '''
     Class to store the details of an account.
@@ -43,7 +44,9 @@ class User:
     '''
 
     users_list = []
-    def __init__(self, username, password) :
+    def __init__(self, fname, lname, username, password) :
+        self.fname = fname
+        self.lname = lname
         self.username = username
         self.password = password
 

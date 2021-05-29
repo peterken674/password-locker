@@ -1,7 +1,7 @@
-from types import GetSetDescriptorType
 import unittest
-from pw import Account
-from pw import User
+
+from pw import Account, User
+
 
 class TestAccount(unittest.TestCase):
 
@@ -53,13 +53,15 @@ class TestAccount(unittest.TestCase):
 class TestUser(unittest.TestCase):
     
     def setUp(self):
-        self.user1 = User('peterken', 'iloveyou')
-        self.user2 = User('johndoe', 'dontknowyou')
+        self.user1 = User('Peter', 'Kennedy','peterken', 'iloveyou')
+        self.user2 = User('John', 'Doe', 'johndoe', 'dontknowyou')
     
     def tearDown(self):
         User.users_list = []
 
     def test_init(self):
+        self.assertEqual(self.user1.fname, 'Peter')
+        self.assertEqual(self.user1.lname, 'Kennedy')
         self.assertEqual(self.user1.username, 'peterken')
         self.assertEqual(self.user1.password, 'iloveyou')
 
