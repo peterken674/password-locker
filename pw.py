@@ -59,3 +59,6 @@ class User:
             if user.username == username and user.password == pw:
                 return True
         return False
+
+    def delete_user(self):
+        pass

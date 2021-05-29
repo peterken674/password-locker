@@ -79,5 +79,13 @@ class TestUser(unittest.TestCase):
 
         self.assertTrue(auth)
 
+    def test_delete_user(self):
+        self.user1.save_user()
+        self.user2.save_user()
+
+        self.user2.delete_user()
+
+        self.assertEqual(len(User.users_list), 1)
+
 if __name__ == '__main__':
     unittest.main()
