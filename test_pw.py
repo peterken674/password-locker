@@ -10,6 +10,11 @@ class TestAccount(unittest.TestCase):
     def tearDown(self):
         Account.pw_list = []
 
+    def test_init(self):
+        self.assertEqual(self.account1.account_name, 'Twitter')
+        self.assertEqual(self.account1.email, 'peter@mail.com')
+        self.assertEqual(self.account1.username, '_peterken')
+        self.assertEqual(self.account1.password, 'p@$$w0rD')
 
 if __name__ == '__main__':
     unittest.main()
