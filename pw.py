@@ -26,3 +26,6 @@ class Account:
     @classmethod
     def display_accounts(cls):
         return Account.accounts_list
+
+    def delete_account(self):
+        Account.accounts_list.remove(self)

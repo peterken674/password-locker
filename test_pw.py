@@ -39,6 +39,14 @@ class TestAccount(unittest.TestCase):
         self.account2.save_account()
 
         self.assertEqual(len(Account.display_accounts()), 2)
+
+    def test_delete_account(self):
+        self.account1.save_account()
+        self.account2.save_account()
+
+        self.account1.delete_account()
+
+        self.assertEqual(len(Account.accounts_list), 1)
     
 
 if __name__ == '__main__':
