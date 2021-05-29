@@ -61,4 +61,7 @@ class User:
         return False
 
     def delete_user(self):
-        pass
+        for account in Account.accounts_list:
+            if account.user == self.username:
+                Account.accounts_list.remove(account)
+        User.users_list.remove(self)
