@@ -2,7 +2,7 @@ import random
 import string
 
 
-class Account:
+class Credentials:
     '''
     Class to store the details of an account.
     '''
@@ -17,7 +17,7 @@ class Account:
 
 
     def save_account(self):
-        Account.accounts_list.append(self)
+        Credentials.accounts_list.append(self)
         
     @classmethod
     def generate_pw(cls, pw_length):
@@ -36,7 +36,7 @@ class Account:
         return cls.user_accounts
 
     def delete_account(self):
-        Account.accounts_list.remove(self)
+        Credentials.accounts_list.remove(self)
 
 class User:
     '''
@@ -61,9 +61,9 @@ class User:
         return False
 
     def delete_user(self):
-        for account in Account.accounts_list:
+        for account in Credentials.accounts_list:
             if account.user == self.username:
-                Account.accounts_list.remove(account)
+                Credentials.accounts_list.remove(account)
         User.users_list.remove(self)
     
     @classmethod

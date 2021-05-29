@@ -1,16 +1,16 @@
 import unittest
 
-from pw import Account, User
+from pw import Credentials, User
 
 
 class TestAccount(unittest.TestCase):
 
     def setUp(self):
-        self.account1 = Account('Twitter', 'peter@mail.com', '_peterken', 'p@$$w0rD', 'ken')
-        self.account2 = Account('Gmail', 'peter@mail.com', 'wittey', 'l0v3_L33', 'ken')
+        self.account1 = Credentials('Twitter', 'peter@mail.com', '_peterken', 'p@$$w0rD', 'ken')
+        self.account2 = Credentials('Gmail', 'peter@mail.com', 'wittey', 'l0v3_L33', 'ken')
 
     def tearDown(self):
-        Account.accounts_list = []
+        Credentials.accounts_list = []
 
     def test_init(self):
         self.assertEqual(self.account1.account_name, 'Twitter')
@@ -23,16 +23,15 @@ class TestAccount(unittest.TestCase):
         self.account1.save_account()
         self.account2.save_account()
 
-        self.assertEqual(len(Account.accounts_list), 2)
-        self.assertEqual(Account.accounts_list[0].account_name, 'Twitter')
+        self.assertEqual(len(Credentials.accounts_list), 2)
+        self.assertEqual(Credentials.accounts_list[0].account_name, 'Twitter')
 
     def test_generate_pw(self):
-        account3 = Account('Facebook', 'peter@mail.com', 'peter', Account.generate_pw(5), 'ken')
 
-        self.assertEqual(len(account3.password), 5)
+        self.assertEqual(len(Credentials.generate_pw(5)), 5)
 
     def test_set_pw(self):
-        pw = Account.set_pw('P@$$word123')
+        pw = Credentials.set_pw('P@$$word123')
 
         self.assertEqual(pw, 'P@$$word123')
 
@@ -40,7 +39,7 @@ class TestAccount(unittest.TestCase):
         self.account1.save_account()
         self.account2.save_account()
         
-        self.assertEqual(Account.display_accounts('ken'), Account.user_accounts)
+        self.assertEqual(Credentials.display_accounts('ken'), Credentials.user_accounts)
 
     def test_delete_account(self):
         self.account1.save_account()
@@ -48,7 +47,7 @@ class TestAccount(unittest.TestCase):
 
         self.account1.delete_account()
 
-        self.assertEqual(len(Account.accounts_list), 1)
+        self.assertEqual(len(Credentials.accounts_list), 1)
 
 class TestUser(unittest.TestCase):
     
@@ -86,7 +85,7 @@ class TestUser(unittest.TestCase):
         self.user2.delete_user()
 
         self.assertEqual(len(User.users_list), 1)
-        self.assertEqual(len(Account.accounts_list), 0)
+        self.assertEqual(len(Credentials.accounts_list), 0)
 
     def test_display_users(self):
         self.user1.save_user()
