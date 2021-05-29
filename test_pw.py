@@ -16,5 +16,11 @@ class TestAccount(unittest.TestCase):
         self.assertEqual(self.account1.username, '_peterken')
         self.assertEqual(self.account1.password, 'p@$$w0rD')
 
+    def test_save_account(self):
+        self.account1.save_account()
+        self.account2.save_accout()
+
+        self.assertEqual(len(Account.accounts_list), 2)
+
 if __name__ == '__main__':
     unittest.main()
