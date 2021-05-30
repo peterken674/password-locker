@@ -4,7 +4,7 @@ import string
 
 class Credentials:
     '''
-    Class to store the details of an account.
+    Class to for credentials for different accounts.
     '''
     accounts_list = []
     user_accounts = []
@@ -62,9 +62,9 @@ class User:
     def delete_user(self):
         User.users_list.remove(self)
     
-    @classmethod
-    def display_users(cls):
-        return User.users_list
+    # @classmethod
+    # def display_users(cls):
+    #     return User.users_list
 
 # Test Data
 

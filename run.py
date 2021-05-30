@@ -37,8 +37,8 @@ def user_login(uname, pw):
 def delete_user(user):
     user.delete_user()
 
-def display_users():
-    return User.display_users()
+# def display_users():
+#     return User.display_users()
 
 # Main function
 def main():
