@@ -187,13 +187,12 @@ def main():
                             if confirm == 'y':
                                 print(f'\n{user.fname} {user.lname} removed successfully\n\n')
                                 delete_user(user)
-                                break
+                                done = True
                             elif confirm == 'n':
                                 print('\n\n')
-                                break
+                                done = True
                             else:
                                 print("I didn't quite get that. Please enter 'y' or 'n' for yes or no.\n\n")
-                                continue
             else:
                 print('No users exist.')
             continue
