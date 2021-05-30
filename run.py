@@ -70,11 +70,9 @@ def main():
                     break
                 else:
                     print('Invalid choice. Try again.\n\n')
-                    continue
 
             save_user(create_user(fname, lname, username, password))
             print(f'\nNew user {fname} {lname} created.\n\n')
-            continue
 
         elif choice == '2':
             print('\n\n***Log In***\n')
@@ -107,7 +105,6 @@ def main():
                                 break
                             else:
                                 print('Invalid choice. Try again.\n\n')
-                                continue
 
                         # Create new account
                         new_account = create_account(name, email, usrnm, acc_pw, user_logged_in.username)
@@ -185,9 +182,13 @@ def main():
                             confirm = confirm.lower()
 
                             if confirm == 'y':
-                                print(f'\n{user.fname} {user.lname} removed successfully\n\n')
-                                delete_user(user)
-                                done = True
+                                del_pw = input('Enter password: ')
+                                if user.password == del_pw:
+                                    print(f'\n{user.fname} {user.lname} removed successfully\n\n')
+                                    delete_user(user)
+                                    done = True
+                                else:
+                                    print('Password is incorrect.')
                             elif confirm == 'n':
                                 print('\n\n')
                                 done = True
