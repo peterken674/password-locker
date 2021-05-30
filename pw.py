@@ -60,14 +60,19 @@ class User:
                 return user
 
     def delete_user(self):
-        for account in Credentials.accounts_list:
-            if account.user == self.username:
-                Credentials.accounts_list.remove(account)
-        User.users_list.remove(self)
+        Credentials.accounts_list.remove(self)
     
     @classmethod
     def display_users(cls):
         return User.users_list
 
+# Test Data
+
 user1 = User('Peter', 'Ken','', '')
 User.users_list.append(user1)
+
+account1 = Credentials('Twitter', 'peter@mail.com', 'peterken', 'fsdJHJkjJ', '')
+account2 = Credentials('Facebook', 'peter@mail.com', 'ken', 'JjklTRfseP', '')
+
+Credentials.accounts_list.append(account1)
+Credentials.accounts_list.append(account2)

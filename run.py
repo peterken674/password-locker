@@ -42,7 +42,7 @@ def display_users():
 
 # Main function
 def main():
-    print('Hello. Welcome to PassLock. Please log in or add new account to continue.')
+    print('Hello. Welcome to PassLock. Please log in or add new account to continue.\n\n')
 
     exit = False
     while not exit:
@@ -115,7 +115,7 @@ def main():
                         print(f'\n\n{name} account created.\n\n')
 
                     # Existing credentials.
-                    if selection == '2':
+                    elif selection == '2':
                         print('\n\n***Add New Credential***\n\n')
                         name = input('Credential Name: ')
                         email = input('Email Address: ')
@@ -127,15 +127,35 @@ def main():
                         new_account.save_account()
                         print(f'\n\n{name} account created.\n\n')
 
-                    if selection == '3':
+                    elif selection == '3':
+                        Credentials.user_accounts = []
                         print('\n\n***Saved Credentials***\n\n')
-                        if display_accounts(user_logged_in.username):
+                        accounts = display_accounts(user_logged_in.username)
+                        if accounts:
                             print('Account      \tUsername      \tPassword')
-                            for account in display_accounts(user_logged_in.username):
+                            print('-'*40)
+                            for account in accounts:
                                 print(f'{account.account_name} .....\t{account.username} .....\t{account.password}')
                             Credentials.user_accounts = []
+                            accounts = []
                         else:
                             print("You don't seems to have any credentials saved yet.")
+                        print('\n\n')
+                        continue
+
+                    elif selection == '4':
+                        accounts = display_accounts(user_logged_in.username)
+                        if accounts:
+                            print('\n\n***Delete Credential***\n\n')
+                            acc_name = input('Enter name of credential to delete: ')
+                            for account in accounts:
+                                if account.account_name == acc_name:
+                                    print(f'\n\n{account.account_name} credentials deleted successfully.')
+                                    delete_account(account)
+                            print('Credential does not exist, please check your spelling.')
+                            accounts = []
+                        else:
+                            print("Your password locker is empty.")
                         print('\n\n')
                         continue
 
@@ -147,6 +167,7 @@ def main():
                         print('\n\n***GOODBYE***\n\n')
                         exit = True
                         break
+                    
             else:
                 print('Invalid credentials or user does not exist.\n\n')
             continue
