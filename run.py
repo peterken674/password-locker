@@ -17,7 +17,8 @@ def set_pw(pw):
     return Credentials.set_pw(pw)
 
 def display_accounts(user):
-    Credentials.display_accounts(user)
+    accounts = Credentials.display_accounts(user)
+    return accounts
 
 def delete_account(account):
     account.delete_account()
@@ -112,6 +113,31 @@ def main():
                         new_account = create_account(name, email, usrnm, acc_pw, user_logged_in.username)
                         new_account.save_account()
                         print(f'\n\n{name} account created.\n\n')
+
+                    # Existing credentials.
+                    if selection == '2':
+                        print('\n\n***Add New Credential***\n\n')
+                        name = input('Credential Name: ')
+                        email = input('Email Address: ')
+                        usrnm = input('Username: ')
+                        pw_input = input('Password: ')
+                        acc_pw = set_pw(pw_input)
+
+                        new_account = create_account(name, email, usrnm, acc_pw, user_logged_in.username)
+                        new_account.save_account()
+                        print(f'\n\n{name} account created.\n\n')
+
+                    if selection == '3':
+                        print('\n\n***Saved Credentials***\n\n')
+                        if display_accounts(user_logged_in.username):
+                            print('Account      \tUsername      \tPassword')
+                            for account in display_accounts(user_logged_in.username):
+                                print(f'{account.account_name} .....\t{account.username} .....\t{account.password}')
+                            Credentials.user_accounts = []
+                        else:
+                            print("You don't seems to have any credentials saved yet.")
+                        print('\n\n')
+                        continue
 
                     elif selection == '5':
                         user_logged_in = create_user('', '', '', '')

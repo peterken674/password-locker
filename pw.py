@@ -69,5 +69,5 @@ class User:
     def display_users(cls):
         return User.users_list
 
-user1 = User('Peter', 'Ken','test', 't3st')
+user1 = User('Peter', 'Ken','', '')
 User.users_list.append(user1)
