@@ -68,7 +68,7 @@ class User:
 
 # Test Data
 
-user1 = User('Peter', 'Ken','', '')
+user1 = User('Peter', 'Ken','test', 't3st')
 User.users_list.append(user1)
 
 account1 = Credentials('Twitter', 'peter@mail.com', 'peterken', 'fsdJHJkjJ', '')

@@ -46,7 +46,9 @@ def main():
 
     exit = False
     while not exit:
-        print('What would you like to do? (Enter number to select)\n1. Create new user.\n2. Log in to an existing account.\n3. Remove user.\n4. Exit.')
+        print('What would you like to do? (enter number to select)')
+        print('--'*25)
+        print('1. Create new user.\n2. Log in to an existing account.\n3. Remove user.\n4. Exit.')
         choice = input('Enter choice: ')
 
         # Create new user.
@@ -83,7 +85,9 @@ def main():
                 print(f'\n\nLogin successful. Welcome {user_logged_in.fname}.\n\n')
 
                 while True:
-                    print(f'What would you like to do?\n1. Add new credentials.\n2. Store existing credentials.\n3. View stored credentials.\n4. Delete credential.\n5. Logout\n6. Exit')
+                    print('What would you like to do?')
+                    print('--'*15)
+                    print('1. Add new credentials.\n2. Store existing credentials.\n3. View stored credentials.\n4. Delete credential.\n5. Logout\n6. Exit')
 
                     selection = input('Enter selection: ')
                     if selection == '1':
@@ -201,6 +205,9 @@ def main():
         elif choice == '4':
             print('\n\n***GOODBYE***\n\n')
             exit = True
+
+        else:
+            print("\nI didn't quite get that. Try again.\n")
 
 
 if __name__ == '__main__':
