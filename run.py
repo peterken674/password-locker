@@ -46,7 +46,7 @@ def main():
 
     exit = False
     while not exit:
-        print('What would you like to do? (Enter number to select)\n1. Create new user.\n2. Log in to an existing account.')
+        print('What would you like to do? (Enter number to select)\n1. Create new user.\n2. Log in to an existing account.\n3. Remove user.\n4. Exit.')
         choice = input('Enter choice: ')
 
         # Create new user.
@@ -139,7 +139,7 @@ def main():
                             Credentials.user_accounts = []
                             accounts = []
                         else:
-                            print("You don't seems to have any credentials saved yet.")
+                            print("You don't seem to have any credentials saved yet.")
                         print('\n\n')
                         continue
 
@@ -171,7 +171,36 @@ def main():
             else:
                 print('Invalid credentials or user does not exist.\n\n')
             continue
-        
+
+        elif choice == '3':
+            print('\n\n***Remove User***\n\n')
+            del_usrname = input('Username of user: ')
+            users = User.users_list
+            if users:
+                done = False
+                while not done:
+                    for user in users:
+                        if user.username == del_usrname:
+                            confirm = input(f'\nAre you sure you want to delete user {user.fname} {user.lname}?(Y/n)')
+                            confirm = confirm.lower()
+
+                            if confirm == 'y':
+                                print(f'\n{user.fname} {user.lname} removed successfully\n\n')
+                                delete_user(user)
+                                break
+                            elif confirm == 'n':
+                                print('\n\n')
+                                break
+                            else:
+                                print("I didn't quite get that. Please enter 'y' or 'n' for yes or no.\n\n")
+                                continue
+            else:
+                print('No users exist.')
+            continue
+
+        elif choice == '4':
+            print('\n\n***GOODBYE***\n\n')
+            exit = True
 
 
 if __name__ == '__main__':

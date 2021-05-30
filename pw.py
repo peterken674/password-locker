@@ -60,7 +60,7 @@ class User:
                 return user
 
     def delete_user(self):
-        Credentials.accounts_list.remove(self)
+        User.users_list.remove(self)
     
     @classmethod
     def display_users(cls):
